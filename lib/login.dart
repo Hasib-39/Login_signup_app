@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_signup/forgot_password.dart';
 import 'package:login_signup/home.dart';
+import 'package:login_signup/service/auth.dart';
 import 'package:login_signup/signup.dart';
 
 class Login extends StatefulWidget {
@@ -199,7 +200,7 @@ class _LoginState extends State<Login> {
                 children: [
                   GestureDetector(
                     onTap: (){
-
+                      AuthMethods().signInWithGoogle(context);
                     },
                     child: Image.asset(
                       "images/google.png",
@@ -208,18 +209,18 @@ class _LoginState extends State<Login> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  const SizedBox(width: 30,),
-                  GestureDetector(
-                    onTap: (){
-
-                    },
-                    child: Image.asset(
-                      "images/apple.png",
-                      height: 50,
-                      width: 50,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                  // const SizedBox(width: 30,),
+                  // GestureDetector(
+                  //   onTap: (){
+                  //     // AuthMethods().signInWithFacebook();
+                  //   },
+                  //   child: Image.asset(
+                  //     "images/apple.png",
+                  //     height: 50,
+                  //     width: 50,
+                  //     fit: BoxFit.cover,
+                  //   ),
+                  // ),
                 ],
               ),
               const SizedBox(height: 40,),
