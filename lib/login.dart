@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_signup/forgot_password.dart';
 import 'package:login_signup/signup.dart';
 
 class Login extends StatefulWidget {
@@ -116,7 +117,9 @@ class _LoginState extends State<Login> {
               SizedBox(height: 20,),
               GestureDetector(
                 onTap: (){
-
+                  Navigator.push(context, 
+                      MaterialPageRoute(builder: (context) => const ForgotPassword())
+                  );
                 },
                 child: Text(
                   "Forgot Password",
