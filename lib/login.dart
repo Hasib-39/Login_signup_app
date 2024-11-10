@@ -26,16 +26,16 @@ class _LoginState extends State<Login> {
                   height: MediaQuery.of(context).size.height * 0.38,
                 ),
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Form(
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 2, horizontal: 30),
+                          padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 30),
                           decoration: BoxDecoration(
-                            color: Color(0xffedf0f8),
+                            color: const Color(0xffedf0f8),
                             borderRadius: BorderRadius.circular(30)
                           ),
                           child: TextFormField(
@@ -46,7 +46,7 @@ class _LoginState extends State<Login> {
                               return null;
                             },
 
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: "Email",
                               hintStyle: TextStyle(
@@ -58,11 +58,11 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 30,),
+                        const SizedBox(height: 30,),
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 2, horizontal: 30),
+                          padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 30),
                           decoration: BoxDecoration(
-                              color: Color(0xffedf0f8),
+                              color: const Color(0xffedf0f8),
                               borderRadius: BorderRadius.circular(30)
                           ),
                           child: TextFormField(
@@ -73,7 +73,7 @@ class _LoginState extends State<Login> {
                               return null;
                             },
 
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Password",
                                 hintStyle: TextStyle(
@@ -85,19 +85,19 @@ class _LoginState extends State<Login> {
                             obscureText: true,
                           ),
                         ),
-                        SizedBox(height: 30,),
+                        const SizedBox(height: 30,),
                         GestureDetector(
                           onTap: (){
 
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width,
-                            padding: EdgeInsets.symmetric(vertical: 13, horizontal: 30),
+                            padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 30),
                             decoration: BoxDecoration(
-                              color: Color(0xff073727),
+                              color: const Color(0xff073727),
                               borderRadius: BorderRadius.circular(30)
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 "Sign In",
                                 style: TextStyle(
@@ -114,14 +114,14 @@ class _LoginState extends State<Login> {
                     )
                   )
                 ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               GestureDetector(
                 onTap: (){
                   Navigator.push(context, 
                       MaterialPageRoute(builder: (context) => const ForgotPassword())
                   );
                 },
-                child: Text(
+                child: const Text(
                   "Forgot Password",
                   style: TextStyle(
                     color: Color(0xFF8c8e98),
@@ -131,8 +131,8 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              SizedBox(height: 40,),
-              Text(
+              const SizedBox(height: 40,),
+              const Text(
                 "or Login with",
                 style: TextStyle(
                   color: Color(0xff073727),
@@ -141,7 +141,7 @@ class _LoginState extends State<Login> {
                   fontFamily: 'Inter'
                 ),
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -156,7 +156,7 @@ class _LoginState extends State<Login> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(width: 30,),
+                  const SizedBox(width: 30,),
                   GestureDetector(
                     onTap: (){
 
@@ -170,11 +170,11 @@ class _LoginState extends State<Login> {
                   ),
                 ],
               ),
-              SizedBox(height: 40,),
+              const SizedBox(height: 40,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Don't have an account?",
                     style: TextStyle(
                       color: Color(0xff8c8e98),
@@ -183,14 +183,14 @@ class _LoginState extends State<Login> {
                       fontFamily: 'Inter'
                     ),
                   ),
-                  SizedBox(width: 5,),
+                  const SizedBox(width: 5,),
                   GestureDetector(
                     onTap: (){
                       Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Signup())
+                        MaterialPageRoute(builder: (context) => const Signup())
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       "SignUp",
                       style: TextStyle(
                         color: Color(0xff073727),
