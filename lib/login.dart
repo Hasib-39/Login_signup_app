@@ -50,7 +50,9 @@ class _LoginState extends State<Login> {
                               hintText: "Email",
                               hintStyle: TextStyle(
                                 color: Color(0xffb2b7bf),
-                                fontSize: 18
+                                fontSize: 18,
+                                fontFamily: 'Inter',
+
                               )
                             ),
                           ),
@@ -75,7 +77,8 @@ class _LoginState extends State<Login> {
                                 hintText: "Password",
                                 hintStyle: TextStyle(
                                     color: Color(0xffb2b7bf),
-                                    fontSize: 18
+                                    fontSize: 18,
+                                  fontFamily: 'Inter'
                                 ),
                             ),
                             obscureText: true,
@@ -99,7 +102,8 @@ class _LoginState extends State<Login> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 22,
-                                  fontWeight: FontWeight.w500
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Inter'
                                 ),
                               ),
                             ),
@@ -119,7 +123,8 @@ class _LoginState extends State<Login> {
                   style: TextStyle(
                     color: Color(0xFF8c8e98),
                     fontSize: 18,
-                    fontWeight: FontWeight.w500
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Inter'
                   ),
                 ),
               ),
@@ -129,7 +134,8 @@ class _LoginState extends State<Login> {
                 style: TextStyle(
                   color: Color(0xff073727),
                   fontSize: 22,
-                  fontWeight: FontWeight.w500
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Inter'
                 ),
               ),
               SizedBox(height: 30,),
@@ -170,7 +176,8 @@ class _LoginState extends State<Login> {
                     style: TextStyle(
                       color: Color(0xff8c8e98),
                       fontSize: 18,
-                      fontWeight: FontWeight.w500
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Inter'
                     ),
                   ),
                   SizedBox(width: 5,),
@@ -185,7 +192,8 @@ class _LoginState extends State<Login> {
                       style: TextStyle(
                         color: Color(0xff073727),
                         fontSize: 20,
-                        fontWeight: FontWeight.w500
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Inter'
                       ),
                     ),
                   )

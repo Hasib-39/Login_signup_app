@@ -49,7 +49,8 @@ class _SignupState extends State<Signup> {
                             hintText: "Name",
                             hintStyle: TextStyle(
                               color: Color(0xffb2b7bf),
-                              fontSize: 18
+                              fontSize: 18,
+                              fontFamily: 'Inter'
                             )
                           ),
                         ),
@@ -73,7 +74,8 @@ class _SignupState extends State<Signup> {
                               hintText: "Email",
                               hintStyle: TextStyle(
                                   color: Color(0xffb2b7bf),
-                                  fontSize: 18
+                                  fontSize: 18,
+                                fontFamily: 'Inter'
                               )
                           ),
                         ),
@@ -97,7 +99,8 @@ class _SignupState extends State<Signup> {
                               hintText: "Password",
                               hintStyle: TextStyle(
                                   color: Color(0xffb2b7bf),
-                                  fontSize: 18
+                                  fontSize: 18,
+                                fontFamily: 'Inter'
                               )
                           ),
                           obscureText: true,
@@ -121,7 +124,8 @@ class _SignupState extends State<Signup> {
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 22,
-                                fontWeight: FontWeight.w500
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Inter'
                               ),
                             ),
                           ),
@@ -137,7 +141,8 @@ class _SignupState extends State<Signup> {
                 style: TextStyle(
                   color: Color(0xff073727),
                   fontSize: 22,
-                  fontWeight: FontWeight.w500
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Inter'
                 ),
               ),
               SizedBox(height: 35,),
@@ -168,7 +173,8 @@ class _SignupState extends State<Signup> {
                     style: TextStyle(
                       color: Color(0xff8c8e98),
                       fontSize: 18,
-                      fontWeight: FontWeight.w500
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Inter'
                     ),
                   ),
                   SizedBox(width: 5,),
@@ -183,7 +189,8 @@ class _SignupState extends State<Signup> {
                       style: TextStyle(
                         color: Color(0xff073727),
                         fontSize: 20,
-                        fontWeight: FontWeight.w500
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Inter'
                       ),
                     ),
                   )
