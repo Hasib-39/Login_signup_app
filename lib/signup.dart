@@ -36,7 +36,6 @@ class _SignupState extends State<Signup> {
         if(e.code == 'weak-pasword'){
           ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
-                backgroundColor: Colors.orangeAccent,
                   content: Text(
                     "Password is too weak. Try Again!",
                     style: TextStyle(
@@ -57,6 +56,46 @@ class _SignupState extends State<Signup> {
                   ),
                 )
             )
+          );
+        } else if(e.toString().contains('Password should be at least 8 characters')){
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text(
+              "Password should be at least 8 characters",
+              style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 18
+              ),
+            ))
+          );
+        } else if(e.toString().contains('Password must contain an upper case character')){
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text(
+                "Password must contain an upper case character",
+                style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 18
+                ),
+              ))
+          );
+        } else if(e.toString().contains('Password must contain a numeric character')){
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text(
+                "Password must contain a numeric character",
+                style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 18
+                ),
+              ))
+          );
+        } else if(e.toString().contains('Password must contain a non-alphanumeric character')){
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text(
+                "Password must contain a special character",
+                style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 18
+                ),
+              ))
           );
         }
       }
@@ -220,13 +259,13 @@ class _SignupState extends State<Signup> {
                     height: 45,
                     fit: BoxFit.cover,
                   ),
-                  const SizedBox(width: 30,),
-                  Image.asset(
-                    "images/apple.png",
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.cover,
-                  )
+                  // const SizedBox(width: 30,),
+                  // Image.asset(
+                  //   "images/apple.png",
+                  //   width: 50,
+                  //   height: 50,
+                  //   fit: BoxFit.cover,
+                  // )
                 ],
               ),
               const SizedBox(height: 35,),
