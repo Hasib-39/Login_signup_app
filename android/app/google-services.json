@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1080050545395",
+    "project_id": "authenticationapp-5c53b",
+    "storage_bucket": "authenticationapp-5c53b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080050545395:android:9272a38e80d06ce4bcfd86",
+        "android_client_info": {
+          "package_name": "com.hasib.login_signup"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf8JLtB3_cV04R-nG7LGjA64w2lLeDu0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
