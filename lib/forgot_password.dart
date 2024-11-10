@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_signup/signup.dart';
 
@@ -9,6 +10,42 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+  String email = "";
+  TextEditingController mailcontroller = TextEditingController();
+
+  final _formkey = GlobalKey<FormState>();
+
+  resetPassword() async {
+    try{
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text(
+              "Password reset email has been sent!",
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 20
+              ),
+            )
+        )
+      );
+    } on FirebaseAuthException catch (e) {
+      if(e.code == 'user-not-found'){
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text(
+                  "No User found for that email.",
+                  style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 20
+                  ),
+                )
+            )
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,10 +53,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       body: Container(
         child: Column(
           children: [
-            SizedBox(height: 70,),
+            const SizedBox(height: 70,),
             Container(
               alignment: Alignment.topCenter,
-              child: Text(
+              child: const Text(
                   "Password Recovery",
                 style: TextStyle(
                   color: Colors.white,
@@ -29,8 +66,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
-            Text(
+            const SizedBox(height: 10,),
+            const Text(
               "Enter your mail",
               style: TextStyle(
                 color: Colors.white,
@@ -41,28 +78,30 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             ),
             Expanded(
                 child: Form(
+                  key: _formkey,
                   child: Padding(
-                      padding: EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 10),
                     child: ListView(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.only(left: 10),
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.white70, width: 2),
                             borderRadius: BorderRadius.circular(30)
                           ),
                           child: TextFormField(
+                            controller: mailcontroller,
                             validator: (value){
                               if (value == null || value.isEmpty) {
                                 return 'Please Enter Email';
                               }
                               return null;
                             },
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontFamily: 'Inter'
                             ),
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: "Email",
                               hintStyle: TextStyle(
                                 fontSize: 18,
@@ -78,19 +117,24 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 40,),
+                        const SizedBox(height: 40,),
                         GestureDetector(
                           onTap: (){
-
+                            if(_formkey.currentState!.validate()){
+                              setState(() {
+                                email=mailcontroller.text;
+                              });
+                              resetPassword();
+                            }
                           },
                           child: Container(
                             width: 140,
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 "Send Email",
                                 style: TextStyle(
@@ -103,11 +147,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 50,),
+                        const SizedBox(height: 50,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                               "Don't have an account?",
                               style: TextStyle(
                                 fontSize: 18,
@@ -115,14 +159,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                 fontFamily: 'Inter'
                               ),
                             ),
-                            SizedBox(width: 5,),
+                            const SizedBox(width: 5,),
                             GestureDetector(
                               onTap: (){
                                 Navigator.push(context,
                                   MaterialPageRoute(builder: (context) => const Signup())
                                 );
                               },
-                              child: Text(
+                              child: const Text(
                                 "Create",
                                 style: TextStyle(
                                   color: Color.fromARGB(225, 184, 166, 6),
