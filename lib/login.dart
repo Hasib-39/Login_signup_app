@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_signup/forgot_password.dart';
+import 'package:login_signup/home.dart';
 import 'package:login_signup/signup.dart';
 
 class Login extends StatefulWidget {
@@ -10,6 +12,47 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  String email="", password = "";
+  TextEditingController mailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+
+  final _formkey = GlobalKey<FormState>();
+
+  userLogin() async {
+    try{
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
+    } on FirebaseAuthException catch (e){
+      if(e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                backgroundColor: Colors.orangeAccent,
+                content: Text(
+                  "No User Found for that Email",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Inter'
+                  ),
+                )
+            )
+        );
+      } else if(e.code == 'wrong-password'){
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                backgroundColor: Colors.orangeAccent,
+                content: Text(
+                  "Wrong Password Provided by User",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Inter'
+                  ),
+                )
+            )
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +73,7 @@ class _LoginState extends State<Login> {
               Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Form(
+                  key: _formkey,
                     child: Column(
                       children: [
                         Container(
@@ -39,6 +83,7 @@ class _LoginState extends State<Login> {
                             borderRadius: BorderRadius.circular(30)
                           ),
                           child: TextFormField(
+                            controller: mailcontroller,
                             validator: (value){
                               if(value == null || value.isEmpty){
                                 return 'Please Enter Email';
@@ -66,6 +111,7 @@ class _LoginState extends State<Login> {
                               borderRadius: BorderRadius.circular(30)
                           ),
                           child: TextFormField(
+                            controller: passwordcontroller,
                             validator: (value){
                               if(value == null || value.isEmpty){
                                 return 'Please Enter Password';
@@ -88,7 +134,13 @@ class _LoginState extends State<Login> {
                         const SizedBox(height: 30,),
                         GestureDetector(
                           onTap: (){
-
+                            if(_formkey.currentState!.validate()){
+                              setState(() {
+                                email= mailcontroller.text;
+                                password=passwordcontroller.text;
+                              });
+                            }
+                            userLogin();
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width,
